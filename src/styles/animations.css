@@ -1,0 +1,103 @@
+@keyframes pulseUrgency {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes deadlineShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-1px);
+  }
+
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+@keyframes floatStatChange {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-28px) scale(1);
+  }
+}
+
+.deadline-bar--warning .deadline-bar__fill {
+  animation: pulseUrgency 0.9s ease-in-out infinite;
+}
+
+.deadline-bar--critical {
+  animation: pulseUrgency 0.55s ease-in-out infinite;
+}
+
+.deadline-bar--critical .deadline-bar__label-row,
+.deadline-bar--critical .deadline-bar__status-row {
+  animation: deadlineShake 0.24s linear infinite;
+}
+
+.game-screen__card-zone {
+  position: relative;
+}
+
+.game-screen__floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-stat-change {
+  position: absolute;
+  display: grid;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 11, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: floatStatChange 780ms ease-out forwards;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.floating-stat-change__label {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.floating-stat-change__value {
+  font-size: 1rem;
+}
+
+.floating-stat-change--up .floating-stat-change__value {
+  color: #d7f75b;
+}
+
+.floating-stat-change--down .floating-stat-change__value {
+  color: #ff7e7e;
+}
+
+.floating-stat-change--strong {
+  transform: scale(1.04);
+}

@@ -1,0 +1,150 @@
+.deadline-bar,
+.hud-panel {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-panel-soft);
+  box-shadow: var(--shadow-panel);
+}
+
+.deadline-bar {
+  transform-origin: center;
+}
+
+.deadline-bar__label-row,
+.deadline-bar__status-row,
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.deadline-bar__label,
+.deadline-bar__value,
+.deadline-bar__warning,
+.deadline-bar__speed,
+.stat-row__label,
+.stat-bar__value {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.deadline-bar__track,
+.stat-bar {
+  position: relative;
+  overflow: hidden;
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.deadline-bar__fill,
+.stat-bar__fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 120ms ease-out;
+}
+
+.deadline-bar__fill {
+  background: #ff7a00;
+}
+
+.deadline-bar__warning,
+.deadline-bar__speed {
+  font-size: 0.72rem;
+}
+
+.deadline-bar__warning {
+  font-weight: 700;
+}
+
+.deadline-bar__speed {
+  color: var(--color-text-muted);
+}
+
+.deadline-bar--warning {
+  border-color: rgba(255, 122, 0, 0.22);
+}
+
+.deadline-bar--warning .deadline-bar__fill {
+  background: #ff7a00;
+}
+
+.deadline-bar--warning .deadline-bar__warning {
+  color: #ffb267;
+}
+
+.deadline-bar--danger {
+  border-color: rgba(255, 122, 0, 0.38);
+  box-shadow: 0 14px 28px rgba(255, 122, 0, 0.1);
+}
+
+.deadline-bar--danger .deadline-bar__fill {
+  background: #ff5a36;
+}
+
+.deadline-bar--danger .deadline-bar__warning {
+  color: #ff9d6a;
+}
+
+.deadline-bar--critical {
+  border-color: rgba(255, 78, 78, 0.52);
+  box-shadow: 0 16px 32px rgba(255, 78, 78, 0.14);
+}
+
+.deadline-bar--critical .deadline-bar__track {
+  background: rgba(255, 78, 78, 0.12);
+}
+
+.deadline-bar--critical .deadline-bar__fill {
+  background: #ff4e4e;
+}
+
+.deadline-bar--critical .deadline-bar__warning {
+  color: #ff7e7e;
+}
+
+.stat-bar__fill--money {
+  background: #d7f75b;
+}
+
+.stat-bar__fill--mental {
+  background: #52d3ff;
+}
+
+.stat-bar__fill--crew {
+  background: #ff729b;
+}
+
+.stat-bar__fill--quality {
+  background: #8d78ff;
+}
+
+.stat-bar__value {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+}
+
+.stat-row {
+  position: relative;
+  transition:
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.stat-row--up {
+  color: #f5ffb4;
+  transform: translateY(-1px);
+}
+
+.stat-row--down {
+  color: #ffb0b0;
+  transform: translateY(-1px);
+}
