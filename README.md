@@ -21,7 +21,11 @@ npm run build
 
 ## GitHub Pages 배포 방법
 
-이 프로젝트는 `vite.config.ts`에서 `VITE_BASE_PATH` 환경변수로 GitHub Pages base를 바꿀 수 있게 정리되어 있습니다.
+이 프로젝트는 `vite.config.ts`에서 다음 순서로 base 경로를 결정합니다.
+
+- `VITE_BASE_PATH`가 있으면 그 값을 사용
+- 없으면 GitHub Actions의 `GITHUB_REPOSITORY`에서 실제 리포지토리 이름을 읽어 `/<repo>/` 형태로 자동 설정
+- 둘 다 없으면 `/`
 
 루트 도메인이나 사용자 페이지처럼 `/`에 배포할 경우:
 
@@ -40,6 +44,10 @@ VITE_BASE_PATH="/<repo>/" npm run build
 ```bash
 VITE_BASE_PATH="/swings-meeting-game/" npm run build
 ```
+
+현재 원격 저장소 주소는 `https://github.com/conandoil13-sketch/swings-meeting-game` 이므로, GitHub Pages 배포 경로는 기본적으로 `/swings-meeting-game/`가 됩니다.
+
+GitHub Actions 배포에서는 리포지토리 이름을 자동으로 읽기 때문에, 워크플로우에서 별도로 base 경로를 하드코딩하지 않아도 됩니다.
 
 생성된 `dist/`를 GitHub Pages에 업로드하거나, GitHub Actions / `gh-pages` 브랜치 배포에 사용하면 됩니다.
 
